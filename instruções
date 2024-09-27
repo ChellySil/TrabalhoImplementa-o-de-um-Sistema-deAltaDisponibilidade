@@ -1,0 +1,13 @@
+INSTRUÇÔES PARA RODAR ESSA COISINHA 
+
+1 - Compilar a aplicação Spring Boot e gerar o jar:
+mvn clean package
+Lembrando de ter o Maven configurado no PC
+
+2 - Para iniciar os serviços do docker compose basta rodar o comando abaixo na raiz do projeto:
+docker-compose up
+Lembrando de ter o docker devidamente configurado no pc
+
+3- Swagger
+A aplicação Spring Boot está em http://localhost:8080.
+A documentação da api está aqui http://localhost:8080/swagger-ui.html
