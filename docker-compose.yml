@@ -2,9 +2,9 @@ version: '3'
 services:
   web:
     image: openjdk:17-jdk-alpine
-    container_name: spring-app
+    container_name: brasil
     build:
-      context: ./spring-app
+      context: ./brasil
       dockerfile: Dockerfile
     ports:
       - "8080"
