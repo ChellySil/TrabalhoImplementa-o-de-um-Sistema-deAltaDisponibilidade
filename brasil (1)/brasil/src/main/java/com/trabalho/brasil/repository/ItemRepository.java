@@ -1,6 +1,6 @@
-package com.example.app.repository;
+package com.trabalho.brasil.repository;
 
-import com.example.app.model.Item;
+import com.trabalho.brasil.model.Item;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
