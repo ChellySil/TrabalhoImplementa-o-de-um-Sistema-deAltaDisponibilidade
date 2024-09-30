@@ -1,7 +1,7 @@
-package com.example.app.controller;
+package com.trabalho.brasil.controller;
 
-import com.example.app.model.Item;
-import com.example.app.repository.ItemRepository;
+import com.trabalho.brasil.model.Item;
+import com.trabalho.brasil.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
