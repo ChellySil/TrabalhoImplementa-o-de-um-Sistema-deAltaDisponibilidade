@@ -1,26 +1,39 @@
-version: '3.8'
-
+version: '3'
 services:
-  microservice1:
+  web:
+    image: openjdk:17-jdk-alpine
+    container_name: spring-app
     build:
-      context: ./cadastro
+      context: ./spring-app
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "8080"
     depends_on:
-      - rabbitmq
-
-  microservice2:
-    build:
-      context: ./notificacao
-      dockerfile: Dockerfile
+      - mongo
+    deploy:
+      replicas: 3
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/mydb
+    networks:
+      - my_network
+  nginx:
+    image: nginx:latest
     ports:
-      - "8081:8081"
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
     depends_on:
-      - rabbitmq
-
-  rabbitmq:
-    image: rabbitmq:3-management
+      - web
+    networks:
+      - my_network
+  mongo:
+    image: mongo:latest
+    volumes:
+      - ./data:/data/db
     ports:
-      - "5672:5672"   
-      - "15672:15672" 
+      - "27017:27017"
+    networks:
+      - my_network
+networks:
+  my_network:
+    driver: bridge
